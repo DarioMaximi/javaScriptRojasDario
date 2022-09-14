@@ -1,10 +1,24 @@
-let entrada = prompt ("Qué día es hoy?")
+function solicitarNombre(){
+    let nombreIngresado   = prompt("Ingresar nombre")
+    alert("El nombre ingresado es " + nombreIngresado)
+} 
 
-while(entrada != "lunes"){
-    let mensaje = `La semana ya empezó`
-    alert(mensaje)
+solicitarNombre();
 
-    let entrada = prompt ("Qué día es hoy?")
-}
+let Moneda = prompt("El valor de que moneda desea saber?")
 
-alert ("Buen comienzo de semana")
+switch (Moneda) {
+    case 'dolar':
+      alert ('El dolar cotiza hoy a $295.-');
+      break;
+    case 'euro':
+      alert ('El euro cotiza hoy a $300');
+      break;
+    case 'real':
+      alert ('El real cotiza hoy a $30');
+      break;
+    default:
+      alert ('Lo lamentamos, por el momento no disponemos de la cotizacion de ' + Moneda + '.');
+  }
+  
+  alert ("¿Hay algún cambio más que quisiera hacer?");
