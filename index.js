@@ -22,3 +22,9 @@ switch (Moneda) {
   }
   
   alert ("¿Hay algún cambio más que quisiera hacer?");
+
+  /* incorporando array  */
+
+  let monedas = ["dolar", "euro", "real"]
+
+  console.log(monedas.length);
