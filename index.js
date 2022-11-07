@@ -1,10 +1,14 @@
-function solicitarNombre(){
+let boton = document.getElementById("boton")
+let evento = "click"
+
+boton.addEventListener(evento, hacerCambio)
+
+function ingresarNombre(){
     let nombreIngresado   = prompt("Ingresar nombre")
-    alert("El nombre ingresado es " + nombreIngresado)
-} 
+    alert("Bienvenid@ " + nombreIngresado + " a la casa de cambio D.R.")
+}
 
-solicitarNombre();
-
+ingresarNombre()
 class Moneda{
   constructor(nombre, precioDeCompra, precioDeVenta){
   this.nombre = nombre;
@@ -13,11 +17,13 @@ class Moneda{
 }
 }
 
-const Moneda1 = new Moneda("dolar", 275, 290);
-const Moneda2 = new Moneda("euro", 285, 305);
-const Moneda3 = new Moneda("real", 40, 60);
+const Moneda1 = new Moneda("dolar", 275, 290,);
+const Moneda2 = new Moneda("euro", 285, 305,);
+const Moneda3 = new Moneda("real", 40, 60,);
 
-let cambio = prompt("El valor de que moneda desea saber?")
+function hacerCambio(){
+    let cambio = prompt("El valor de que moneda desea saber?").toLowerCase()
+
 
 switch (cambio) {
     case Moneda1.nombre :
@@ -36,10 +42,11 @@ switch (cambio) {
       alert ('Cambiando ' + cantidad2 + ' reales, vas a obtener ' + cantidad2 * Moneda3.precioDeCompra +' pesos. Cambiando ' + cantidad2 +' pesos, vas a obtener ' + cantidad2 / Moneda3.precioDeVenta + ' reales.');
       break;
     default:
-      alert ('Lo lamentamos, por el momento no disponemos de la cotizacion de ' + Moneda + '.');
-  }
+      alert ('Lo lamentamos, por el momento no disponemos de la cotizacion de ' + cambio + '.');
+      }
+    }
   
-  alert ("¿Hay algún cambio más que quisiera hacer?");
+  
 
   /* incorporando array  */
   
@@ -47,3 +54,23 @@ switch (cambio) {
   let monedas = ["dolar", "euro", "real"]
 
   console.log(monedas.length);
+
+  /* Imagenes de inicio */
+
+  let div = document.getElementById("imagenesInicio")
+  
+  Moneda.forEach(moneda => {
+    let productoCarrousel = document.createElement("div")
+    productoCarrousel.innerHTML = `
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" id="tarjetaProducto" src="${producto.imagen}" alt="Card image cap">
+  <div class="card-body">
+    <h2 class="card-title">${producto.nombre}</h2>
+    <p class="card-text">${producto.descripcion}</p>
+    <a href="#" class="btn btn-primary">Adquirir</a>
+  </div>
+</div>
+   `
+div.append(productoCarrousel)
+
+})
