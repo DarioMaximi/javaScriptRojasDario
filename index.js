@@ -10,36 +10,38 @@ function ingresarNombre(){
 
 ingresarNombre()
 class Moneda{
-  constructor(nombre, precioDeCompra, precioDeVenta){
-  this.nombre = nombre;
-  this.precioDeCompra = precioDeCompra;
-  this.precioDeVenta = precioDeVenta;
+  constructor(info){
+  this.nombre = info.nombre;
+  this.precioDeCompra = info.precioDeCompra;
+  this.precioDeVenta = info.precioDeVenta;
+  this.imagen = info.imagen;
 }
 }
+const moneda = [];
 
-const Moneda1 = new Moneda("dolar", 275, 290,);
-const Moneda2 = new Moneda("euro", 285, 305,);
-const Moneda3 = new Moneda("real", 40, 60,);
+moneda.push (new Moneda({nombre: "dolar", precioDeCompra: 275, precioDeVenta: 290, imagen: "./images/dolar.png"}));
+moneda.push (new Moneda({nombre: "euro",precioDeCompra: 285, precioDeVenta: 305, imagen: "./images/euro.png"}));
+moneda.push (new Moneda({nombre: "real",precioDeCompra: 40, precioDeVenta: 60, imagen: "./images/real.png"}));
 
 function hacerCambio(){
     let cambio = prompt("El valor de que moneda desea saber?").toLowerCase()
 
 
 switch (cambio) {
-    case Moneda1.nombre :
-      alert ('Precio de compra: ' + Moneda1.precioDeCompra + ' Precio de venta: ' + Moneda1.precioDeVenta );
+    case (moneda[0].nombre):
+      alert ('Precio de compra: ' + moneda[0].precioDeCompra + ' Precio de venta: ' + moneda[0].precioDeVenta );
       let cantidad = prompt('Que cantidad queres cambiar?');
-      alert ('Cambiando ' + cantidad + ' dolares, vas a obtener ' + cantidad * Moneda1.precioDeCompra +' pesos. Cambiando ' + cantidad +' pesos, vas a obtener ' + cantidad / Moneda1.precioDeVenta + ' dolares.');
+      alert ('Cambiando ' + cantidad + ' dolares, vas a obtener ' + cantidad * moneda[0].precioDeCompra +' pesos. Cambiando ' + cantidad +' pesos, vas a obtener ' + cantidad / moneda[0].precioDeVenta + ' dolares.');
       break;
-    case Moneda2.nombre:
-      alert ('Precio de compra: ' + Moneda2.precioDeCompra + ' Precio de venta: ' + Moneda2.precioDeVenta );
+    case (moneda[1].nombre):
+      alert ('Precio de compra: ' + moneda[1].precioDeCompra + ' Precio de venta: ' + moneda[1].precioDeVenta );
       let cantidad1 = prompt('Que cantidad queres cambiar?');
-      alert ('Cambiando ' + cantidad1 + ' euros, vas a obtener ' + cantidad1 * Moneda2.precioDeCompra +' pesos. Cambiando ' + cantidad1 +' pesos, vas a obtener ' + cantidad1 / Moneda2.precioDeVenta + ' euros.');
+      alert ('Cambiando ' + cantidad1 + ' euros, vas a obtener ' + cantidad1 * moneda[1].precioDeCompra +' pesos. Cambiando ' + cantidad1 +' pesos, vas a obtener ' + cantidad1 / moneda[1].precioDeVenta + ' euros.');
       break;
-    case Moneda3.nombre:
-      alert ('Precio de compra: ' + Moneda3.precioDeCompra + ' Precio de venta: ' + Moneda3.precioDeVenta );
+    case (moneda[2].nombre):
+      alert ('Precio de compra: ' + moneda[2].precioDeCompra + ' Precio de venta: ' + moneda[2].precioDeVenta );
       let cantidad2 = prompt('Que cantidad queres cambiar?');
-      alert ('Cambiando ' + cantidad2 + ' reales, vas a obtener ' + cantidad2 * Moneda3.precioDeCompra +' pesos. Cambiando ' + cantidad2 +' pesos, vas a obtener ' + cantidad2 / Moneda3.precioDeVenta + ' reales.');
+      alert ('Cambiando ' + cantidad2 + ' reales, vas a obtener ' + cantidad2 * moneda[2].precioDeCompra +' pesos. Cambiando ' + cantidad2 +' pesos, vas a obtener ' + cantidad2 / moneda[2].precioDeVenta + ' reales.');
       break;
     default:
       alert ('Lo lamentamos, por el momento no disponemos de la cotizacion de ' + cambio + '.');
@@ -55,22 +57,22 @@ switch (cambio) {
 
   console.log(monedas.length);
 
-  /* Imagenes de inicio */
+  /* llamando productos creados para mostrar en el inicio */
 
-  let div = document.getElementById("imagenesInicio")
-  
-  Moneda.forEach(moneda => {
+  let imagenesInicio = document.getElementById("imagenesInicio")
+
+  moneda.forEach((moneda) => {
     let productoCarrousel = document.createElement("div")
     productoCarrousel.innerHTML = `
     <div class="card" style="width: 18rem;">
-  <img class="card-img-top" id="tarjetaProducto" src="${producto.imagen}" alt="Card image cap">
+  <img class="card-img-top" id="tarjetaProducto" src="${moneda.imagen}" alt="Card image cap">
   <div class="card-body">
-    <h2 class="card-title">${producto.nombre}</h2>
-    <p class="card-text">${producto.descripcion}</p>
-    <a href="#" class="btn btn-primary">Adquirir</a>
+    <h2 class="card-title">${moneda.nombre}</h2>
+    <p class="card-text">"Precio de Compra: ${moneda.precioDeCompra}"</p>
+    <p class="card-text">"Precio de Venta: ${moneda.precioDeVenta}"</p>
   </div>
 </div>
    `
-div.append(productoCarrousel)
+imagenesInicio.append(productoCarrousel)
 
 })
