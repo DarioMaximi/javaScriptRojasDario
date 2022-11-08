@@ -1,0 +1,9 @@
+#tarjetaProducto{
+    width: 15vw;
+    height: auto;
+}
+
+#tarjetas{
+    display: flex;
+    flex-direction: row;
+}

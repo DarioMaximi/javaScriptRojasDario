@@ -1,7 +1,21 @@
 let boton = document.getElementById("boton")
-let evento = "click"
 
-boton.addEventListener(evento, hacerCambio)
+boton.addEventListener("click", () =>{
+  Swal.fire({
+    title: 'Estas seguro que quieres cambiar divisas?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, cambiar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        hacerCambio()
+      )
+    }
+  })
+});
 
 function ingresarNombre(){
     let nombreIngresado   = prompt("Ingresar nombre")
@@ -64,7 +78,7 @@ switch (cambio) {
   moneda.forEach((moneda) => {
     let productoCarrousel = document.createElement("div")
     productoCarrousel.innerHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card" id="tarjertas" style="width: 18rem;">
   <img class="card-img-top" id="tarjetaProducto" src="${moneda.imagen}" alt="Card image cap">
   <div class="card-body">
     <h2 class="card-title">${moneda.nombre}</h2>
