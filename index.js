@@ -1,4 +1,5 @@
 let boton = document.getElementById("boton")
+boton.classList.add ("colorTamaño")
 
 boton.addEventListener("click", () =>{
   Swal.fire({
