@@ -1,0 +1,7 @@
+[
+    {"moneda": "Peso Argentino", "valor": 1, "id": "ARG"},
+    {"moneda": "Dolar", "valor": 0.0062, "id": "USD"},
+    {"moneda": "Euro", "valor": 0.0061, "id": "EUR"},
+    {"moneda": "Real", "valor": 0.033, "id": "BRA"},
+    {"moneda": "Peso Colombiano", "valor": 29.78, "id": "COL"}
+]
